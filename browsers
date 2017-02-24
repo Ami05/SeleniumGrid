@@ -1,0 +1,48 @@
+package engine;
+//Importing classes
+import java.net.URL;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+/*
+@Function : 
+@params browser: The browser upon which the script has to be executed.
+@param ip: IP of the hub which fires the request for script to run.
+@param port: Port no which is assigned to the Node .
+
+
+
+
+
+
+*/
+public class browsers {
+	public static RemoteWebDriver getDriver(String browser,String ip,Integer port) throws Exception{
+		
+		
+		return new RemoteWebDriver(new URL("http://"+ip+":"+port+"/wd/hub"),getBrowserCapabilities(browser));
+	}
+	public  static DesiredCapabilities getBrowserCapabilities(String browserType) throws Exception{
+		
+		switch(browserType){
+		case "chrome":
+			System.out.println("launching browser:  "+ browserType);
+			return DesiredCapabilities.chrome();
+		
+		case "firefox":
+			System.out.println("launching browser:  "+ browserType);
+			return DesiredCapabilities.firefox();
+		
+		case "IE" :
+			System.out.println("launching browser:  "+ browserType);
+			return DesiredCapabilities.internetExplorer();
+		
+		default:
+			System.out.println("The browser "+browserType+" is invalid .Launching firefox ");
+			return DesiredCapabilities.firefox();
+		}
+			
+		
+	}
+
+}
