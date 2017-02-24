@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Main Test Suite" parallel="tests" verbose="1">
+   <!-- <listeners>
+       <listener class-name="report.TakeScreenShot"/>
+  </listeners> -->
+  <listeners>
+         <listener class-name="report.TestNGCustomReportListener" />
+    </listeners>
+    <test name="Grid firefox TestA">
+    <parameter name="browser" value="chrome"/>
+        <classes>
+        <class name="script.ParallelA"/>
+        </classes>
+    </test>
+    <test name="Grid chrome Test B">
+    <parameter name="browser" value="chrome"/>
+        <classes>
+        <class name="script.ParallelB"/>
+        </classes>
+    </test>
+    <test name="Grid chrome Test C">
+    <parameter name="browser" value="IE"/>
+        <classes>
+        <class name="script.ParallelC"/>
+        </classes>
+    </test>
+</suite>
