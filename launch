@@ -1,0 +1,50 @@
+package engine;
+
+import java.net.URL;
+
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import bsh.Capabilities;
+
+
+public class Launch {
+	
+	
+	public RemoteWebDriver driver;
+			
+	public void launchapp(String appURL,String browser, String ip,Integer port) throws Exception{
+		
+		try{
+			driver = browsers.getDriver(browser, ip,port);
+			
+			driver.manage().window().maximize();
+			
+			System.out.println("Navigation to Application to "+ appURL);
+			driver.navigate().to(appURL);
+		}
+		catch(Exception e){
+			System.out.println("Please Check your hub and node");
+		}
+	}
+	
+	public void checkTitle(String title){
+		
+		
+		String strPageTitle = driver.getTitle();
+		System.out.println("**Verify page title**");
+		org.testng.Assert.assertTrue(strPageTitle.equalsIgnoreCase(title),"Page does not match");
+				
+	}
+	
+	public void closeBrowser(){
+		if(driver !=null){
+			driver.quit();
+		}
+	}
+	
+}
