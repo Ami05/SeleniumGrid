@@ -1,0 +1,58 @@
+package script;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import engine.browsers;
+
+public class ParallelA {
+
+	public static RemoteWebDriver driver;
+	//public static engine.browsers browsers;
+	public static String appURL ="https://www.google.com";
+	
+	
+	
+	public static  String ip = "10.124.130.78";
+	public String title = "google";
+	public static Integer port = 4444;
+	public static String browser="chrome";
+	
+	
+	@BeforeClass
+	@Parameters({"browsers"})
+	public void setup() throws Exception{
+		try{
+		System.out.println("_____ Test NG  browser launchA________");
+		driver = browsers.getDriver(browser, ip, port);
+		driver.manage().window().maximize();
+		}
+		catch(Exception e){
+			System.out.println("Please check your hub and node.");
+		}
+	}
+	
+	
+	@Test
+	public void checkPageTitle() throws Exception{
+		
+		System.out.println("_____NG check titleA_____");
+		driver.navigate().to(appURL);
+		String strPageTitle = driver.getTitle();
+		Assert.assertTrue(strPageTitle.equalsIgnoreCase(title),"Title did not match");
+	}
+	
+	@AfterClass
+	public void closeBrowser() throws Exception{
+		if(driver!=null){
+			driver.quit();		
+			}
+		
+	}
+
+}
