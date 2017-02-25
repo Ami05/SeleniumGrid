@@ -4,9 +4,9 @@
    <!-- <listeners>
        <listener class-name="report.TakeScreenShot"/>
   </listeners> -->
-  <listeners>
+ <!-- <listeners>
          <listener class-name="report.TestNGCustomReportListener" />
-    </listeners>
+    </listeners>-->
     <test name="Grid firefox TestA">
     <parameter name="browser" value="chrome"/>
         <classes>
