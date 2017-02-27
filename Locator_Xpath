@@ -2,9 +2,12 @@
 
 1. Contains:
     //*[Contains(text(),'Clear')]  --> Finds Text 'Clear' every where in the page.
+    
     //*[Contains(@id,'ActDetailsPanel')]  --> Any id which contains 'ActDetailsPanel' in there id .
+    
     //*[contains(@id,'navbar')]//*[contains(@id,'nav-belt')]  --> In complete page search for anything with id ='navbar' then within that tag find any tag with id = 'navbelt'.
-    //a[contains(@href,'AddRows')]   --> Find an anchor tag with attribute href and value of href is 'AddRows'
+   
+   //a[contains(@href,'AddRows')]   --> Find an anchor tag with attribute href and value of href is 'AddRows'
    
    //*[text()[contains(.,'Home')]] --> if the desired text is not with in the tags but outside. such as:
 
