@@ -35,3 +35,4 @@
   2. Starts-With
   
       //*[starts-with(@value,'0.433')] -- > any tag which has value that starts with 0.433    (This can be replacement for //*[contains(@value,'0.433')] )
+      //*[starts-with(@value,'0.433')] -- > any tag which has value that starts with 0.433    (This can be replacement for //*[contains(@value,'0.433')] )
