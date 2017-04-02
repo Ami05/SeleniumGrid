@@ -1,1 +1,5 @@
-java -jar selenium-server-standalone-2.47.1.jar -role hub
+::Hub is the central point which will receive all the test requests along with information on which browser, platform (i.e. WINDOWS, LINUX, etc) and where the test should be run.
+::@params selenium stand alone jar
+::@params port upon which the hub will execute(Default is 4444)
+
+java -jar selenium-server-standalone-2.47.1.jar -port 4242 -role hub
