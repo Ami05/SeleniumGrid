@@ -20,8 +20,15 @@ public class Launch {
 	public void launchapp(String appURL,String browser, String ip,Integer port) throws Exception{
 		
 		try{
+			/*
+			Initialize driver with following parameters 
+			@browser = browserName to be launched,
+			@Ip = IP on which the browser has to be launched 
+			@Port = Port no on which browser has to be launched
+			*/
 			driver = browsers.getDriver(browser, ip,port);
 			
+			//Maximize Window
 			driver.manage().window().maximize();
 			
 			System.out.println("Navigation to Application to "+ appURL);
